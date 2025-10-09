@@ -76,6 +76,16 @@
 }
 
 /* Moon orbits and moons */
+.moon-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
 .moon-orbit-path {
   position: absolute;
   top: 50%;
@@ -86,13 +96,21 @@
   pointer-events: none;
 }
 
-.moon-wrapper {
+.moon-revolution {
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 0;
+  left: 0;
   width: 0;
   height: 0;
-  transform-origin: center;
+  pointer-events: none;
+}
+
+.moon-position {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: left center;
+  pointer-events: none;
 }
 
 .moon {
@@ -106,6 +124,7 @@
     0 0 5px rgba(255, 255, 255, 0.3);
   cursor: help;
   transition: all 0.2s ease;
+  pointer-events: auto;
 }
 
 .moon:hover {

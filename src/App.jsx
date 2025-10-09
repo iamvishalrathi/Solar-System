@@ -10,6 +10,7 @@ function App() {
   const [selectedPlanet, setSelectedPlanet] = useState(null)
   const [scale, setScale] = useState(1)
   const [isPaused, setIsPaused] = useState(false)
+  const [showControls, setShowControls] = useState(true)
 
   useEffect(() => {
     // Add stars background
@@ -55,16 +56,26 @@ function App() {
         onPlanetClick={setSelectedPlanet}
       />
       
-      <Controls
-        speed={speed}
-        setSpeed={setSpeed}
-        showOrbits={showOrbits}
-        setShowOrbits={setShowOrbits}
-        scale={scale}
-        setScale={setScale}
-        isPaused={isPaused}
-        setIsPaused={setIsPaused}
-      />
+      <button 
+        className="toggle-controls-btn"
+        onClick={() => setShowControls(!showControls)}
+        title={showControls ? 'Hide Controls' : 'Show Controls'}
+      >
+        {showControls ? '⚙️ ×' : '⚙️'}
+      </button>
+      
+      {showControls && (
+        <Controls
+          speed={speed}
+          setSpeed={setSpeed}
+          showOrbits={showOrbits}
+          setShowOrbits={setShowOrbits}
+          scale={scale}
+          setScale={setScale}
+          isPaused={isPaused}
+          setIsPaused={setIsPaused}
+        />
+      )}
       
       {selectedPlanet && (
         <InfoPanel

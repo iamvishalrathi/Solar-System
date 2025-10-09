@@ -104,7 +104,7 @@ function Planet({ planet, rotation, showOrbit, onClick, speed }) {
             
             {/* Render moons */}
             {planet.moonData && planet.moonData.map(moon => (
-              <div key={moon.name}>
+              <div key={moon.name} className="moon-container">
                 {showOrbit && (
                   <div className="moon-orbit-path" style={{
                     width: `${moon.distance * 2}px`,
@@ -112,21 +112,27 @@ function Planet({ planet, rotation, showOrbit, onClick, speed }) {
                   }}></div>
                 )}
                 <div 
-                  className="moon-wrapper"
+                  className="moon-revolution"
                   style={{ 
                     transform: `rotate(${moonRotations[moon.name] || 0}deg)`
                   }}
                 >
                   <div 
-                    className="moon" 
+                    className="moon-position"
                     style={{
-                      width: `${moon.size}px`,
-                      height: `${moon.size}px`,
-                      backgroundColor: moon.color,
-                      transform: `translateX(${moon.distance}px)`,
+                      transform: `translateX(${moon.distance}px)`
                     }}
-                    title={moon.name}
-                  ></div>
+                  >
+                    <div 
+                      className="moon" 
+                      style={{
+                        width: `${moon.size}px`,
+                        height: `${moon.size}px`,
+                        backgroundColor: moon.color,
+                      }}
+                      title={moon.name}
+                    ></div>
+                  </div>
                 </div>
               </div>
             ))}

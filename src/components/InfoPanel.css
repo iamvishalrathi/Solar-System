@@ -25,6 +25,12 @@
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
   position: relative;
   animation: slideUp 0.3s ease;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.info-panel::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
 }
 
 .close-button {
